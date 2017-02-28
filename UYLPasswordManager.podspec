@@ -11,10 +11,11 @@ Pod::Spec.new do |s|
                    DESC
   s.homepage         = "https://github.com/kharrison/UYLPasswordManager"
   s.license          = { :type => "BSD", :file => "LICENSE" }
-  s.authors          = { "Keith Harrison" => "keith@useyourloaf.com" }
-  s.social_media_url = 'https://twitter.com/kharrison'
-  s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/kharrison/UYLPasswordManager.git", :tag => "1.1.0" }
+  s.authors          = { "Keith Harrison" => "keith@useyourloaf.com", "Matt Klinkhammer" => "mklinkhammer@anexinet.com" }
+  s.social_media_url = 'https://twitter.com/klinkyrules'
+  s.ios.deployment_target = '7.0'
+  s.watchos.deployment_target = '2.0'
+  s.source       = { :git => "https://github.com/MattKlinkhammer/UYLPasswordManager.git", :tag => "1.1.0" }
   s.source_files  = "PasswordManager"
   s.requires_arc = true
 end
