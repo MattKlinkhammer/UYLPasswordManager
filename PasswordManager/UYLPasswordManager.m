@@ -86,6 +86,7 @@ static UYLPasswordManager *_sharedInstance = nil;
     if (self) {
         _migrate = YES;
         _accessMode = UYLPMAccessibleWhenUnlocked;
+#if TARGET_OS_IPHONE
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(deviceWillLockOrBackground:) 
                                                      name:UIApplicationProtectedDataWillBecomeUnavailable 
@@ -94,6 +95,13 @@ static UYLPasswordManager *_sharedInstance = nil;
                                                  selector:@selector(deviceWillLockOrBackground:) 
                                                      name:UIApplicationDidEnterBackgroundNotification 
                                                    object:nil];
+        
+#else
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(deviceWillLockOrBackground:)
+                                                     name:NSExtensionHostDidEnterBackgroundNotification
+                                                   object:nil];
+#endif
 
     }
     return self;
